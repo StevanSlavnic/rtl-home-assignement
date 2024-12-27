@@ -2,7 +2,6 @@ import React from "react";
 import Teaser from "./Teaser";
 import TeaserList from "./TeaserList";
 import GridList from "./GridList";
-import InfiniteScroll from "./InfiniteScroll";
 import { IArticle } from "@/app/types";
 
 export default function Articles({ articles }: { articles: IArticle[] }) {

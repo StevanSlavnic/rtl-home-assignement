@@ -1,16 +1,15 @@
 import { NextResponse } from "next/server";
 import { articles } from "../../../data/articles"; // Simulated data
+import { PAGE_LIMIT } from "@/app/constants";
 
 export async function GET(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);
   const currentPage = parseInt(searchParams.get("page") || "0"); // Default to page 1
 
-  const limit = parseInt(searchParams.get("limit") || "12"); // Default to 12 items per page
+  const limit = parseInt(searchParams.get("limit") || `${PAGE_LIMIT}`); // Default to 12 items per page
 
   const startIndex = (currentPage - 1) * limit;
-  console.log("startIndex :", startIndex);
   const endIndex = currentPage * limit;
-  console.log("endIndex :", endIndex);
 
   const paginatedArticles = articles
     .slice(startIndex, endIndex)
@@ -18,7 +17,7 @@ export async function GET(request: Request): Promise<Response> {
       return {
         id: article.id,
         titel: article.titel,
-        afbeelding: article.afbeelding,
+        afbeelding: article.afbeelding.path,
         labelType: article.labelType,
       };
     }); // Omitted other properties for brevity

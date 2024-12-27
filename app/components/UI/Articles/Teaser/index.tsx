@@ -1,13 +1,15 @@
 import Link from "next/link";
 import React from "react";
 import Card from "@/app/components/UI/Card";
+import { IArticle } from "@/app/types";
+import { SPORT_ARTICLE_URI } from "@/app/constants";
 
-export default function Teaser({ article }: { article: any }) {
-  const { id, titel, labelType, afbeelding, pathname } = article;
+export default function Teaser({ article }: { article: IArticle }) {
+  const { id, titel, labelType, afbeelding } = article;
 
   return (
-    <div className="w-full lg:w-[622px] shrink">
-      <Link href={`${pathname}/artikel/${id}`}>
+    <div className="w-full shrink-0 mb-5 sm:mb-5 lg:w-[643px]">
+      <Link href={`${SPORT_ARTICLE_URI}/${id}`}>
         <Card
           id={id}
           titel={titel}

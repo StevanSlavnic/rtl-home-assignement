@@ -1,14 +1,16 @@
 import Link from "next/link";
 import React from "react";
 import Card from "@/app/components/UI/Card";
+import { SPORT_ARTICLE_URI } from "@/app/constants";
+import { IArticle } from "@/app/types";
 
-export default function TeaserList({ articles }: { articles: any }) {
+export default function TeaserList({ articles }: { articles: IArticle[] }) {
   return (
-    <div className="flex flex-col md:flex-wrap sm:flex-wrap lg:ml-4 lg:grow gap-4">
-      {articles.map(({ id, labelType, titel, afbeelding }: any) => {
+    <div className="sm:flex sm:flex-col sm:ml-0 md:grid md:grid md:grid-cols-[repeat(2,_1fr)] md:m-0 lg:flex lg:flex-col lg:flex-wrap lg:ml-5 lg:grow">
+      {articles.map(({ id, labelType, titel, afbeelding }: IArticle) => {
         return (
-          <div key={id} className="lg:w-full w-1/2">
-            <Link key={id} href={`sport/artikel/${id}`}>
+          <div key={id} className="mb-5">
+            <Link key={id} href={`${SPORT_ARTICLE_URI}/${id}`}>
               <Card
                 id={id}
                 titel={titel}

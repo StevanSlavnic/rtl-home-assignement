@@ -3,20 +3,12 @@ import Teaser from "./Teaser";
 import TeaserList from "./TeaserList";
 import GridList from "./GridList";
 import InfiniteScroll from "./InfiniteScroll";
+import { IArticle } from "@/app/types";
 
-interface Article {
-  id: string;
-  titel: string;
-  labelType: string;
-  afbeelding: {
-    path: string;
-  };
-}
-
-export default function Articles({ articles }: { articles: Article[] }) {
+export default function Articles({ articles }: { articles: IArticle[] }) {
   return (
     <>
-      <div className="max-w-screen-xl mx-auto pt-4 pb-12">
+      <div className="max-w-screen-xl mx-auto pt-4">
         <div className="flex flex-col lg:flex-row">
           <Teaser article={{ ...articles[0] }} />
 

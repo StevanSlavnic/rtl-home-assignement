@@ -44,10 +44,6 @@ body {
     &.teaser-list {
       @apply flex gap-4;
     }
-
-    &.base {
-      @apply mb-4;
-    }
   }
 
   .card--image {

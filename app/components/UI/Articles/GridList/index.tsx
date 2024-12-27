@@ -1,21 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Card from "@/app/components/UI/Card";
 import InfiniteScroll from "../InfiniteScroll";
 import fetchArticles from "@/app/actions/actions";
+import { IArticle } from "@/app/types";
+import { SPORT_ARTICLE_URI } from "@/app/constants";
 
 export default function GridList({
   initialArticles = [],
 }: {
-  initialArticles: any;
+  initialArticles: IArticle[];
 }) {
   const [page, setPage] = useState(1);
-  console.log("page :", page);
-  const [articles, setArticles] = useState<any[]>(initialArticles);
+  const [articles, setArticles] = useState<IArticle[]>(initialArticles);
   const [hasMoreData, setHasMoreData] = useState(true);
-  const scrollTrigger = useRef(null);
 
   const loadMoreArticles = async () => {
     if (hasMoreData) {
@@ -31,25 +31,12 @@ export default function GridList({
     }
   };
 
-  //   useEffect(() => {
-  //     const handleScroll = () => {
-  //       const { scrollTop, scrollHeight, clientHeight } =
-  //         document.documentElement;
-  //       if (scrollTop + clientHeight >= scrollHeight - 400 && hasMoreData) {
-  //         loadMoreArticles();
-  //       }
-  //     };
-
-  //     window.addEventListener("scroll", handleScroll);
-  //     return () => window.removeEventListener("scroll", handleScroll);
-  //   }, [hasMoreData]);
-
   return (
     <>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-4">
-        {articles.map(({ id, titel, afbeelding, labelType }: any) => {
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-5">
+        {articles.map(({ id, titel, afbeelding, labelType }: IArticle) => {
           return (
-            <Link key={id} href={`sports/artikel/${id}`}>
+            <Link key={id} href={`${SPORT_ARTICLE_URI}/${id}`}>
               <Card
                 id={id}
                 titel={titel}
@@ -62,19 +49,7 @@ export default function GridList({
         })}
       </div>
 
-      <button onClick={loadMoreArticles}>Load More</button>
-
-      {/* <InfiniteScroll initialArticles={articles} /> */}
-
-      {/* <div>
-        <div className="text-center text-slate-600 mt-5">
-          {hasMoreData ? (
-            <div ref={scrollTrigger}>Loading...</div>
-          ) : (
-            <p className="text-slate-600">No more posts to load</p>
-          )}
-        </div>
-      </div> */}
+      <InfiniteScroll hasMoreData={hasMoreData} onChange={loadMoreArticles} />
     </>
   );
 }

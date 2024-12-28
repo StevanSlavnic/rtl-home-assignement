@@ -10,7 +10,11 @@ export default function InfiniteScroll({
 }) {
   return (
     <div>
-      <InView as={"div"} onChange={(inView) => inView && onChange()}>
+      <InView
+        as={"div"}
+        threshold={1}
+        onChange={(inView) => inView && onChange()}
+      >
         <div className="text-center text-slate-600 mt-5">
           {hasMoreData ? (
             <div>Loading...</div>

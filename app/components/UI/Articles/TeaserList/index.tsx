@@ -3,8 +3,12 @@ import React from "react";
 import Card from "@/app/components/UI/Card";
 import { SPORT_ARTICLE_URI } from "@/app/constants";
 import { IArticle } from "@/app/types";
+import { useSelector } from "react-redux";
+import { selectArticles } from "@/lib/features/articles/articlesSelector";
 
-export default function TeaserList({ articles }: { articles: IArticle[] }) {
+export default function TeaserList() {
+  const articles = useSelector(selectArticles()).slice(1, 5);
+
   return (
     <div className="sm:flex sm:flex-col sm:ml-0 md:grid md:grid md:grid-cols-[repeat(2,_1fr)] md:m-0 lg:flex lg:flex-col lg:flex-wrap lg:ml-5 lg:grow">
       {articles.map(({ id, labelType, titel, afbeelding }: IArticle) => {

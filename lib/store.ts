@@ -1,14 +1,18 @@
-import { configureStore, Reducer } from "@reduxjs/toolkit";
-import articlesReducer from "./reducers/articlesReducer";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import articlesReducer from "./features/articles/articlesSlice";
+import paginationReducer from "./features/pagination/paginationSlice";
 
-export const store = configureStore({
-  reducer: {
-    // Define a top-level state field named `posts`, handled by `postsReducer`
-    articles: articlesReducer as Reducer,
-  },
-});
+export const makeStore = () => {
+  return configureStore({
+    reducer: combineReducers({
+      articles: articlesReducer,
+      pagination: paginationReducer,
+    }),
+  });
+};
 
+// Infer the type of makeStore
+export type AppStore = ReturnType<typeof makeStore>;
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
-export type AppStore = typeof store;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];

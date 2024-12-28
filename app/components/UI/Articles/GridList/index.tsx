@@ -7,14 +7,16 @@ import InfiniteScroll from "../InfiniteScroll";
 import fetchArticles from "@/app/actions/actions";
 import { IArticle } from "@/app/types";
 import { SPORT_ARTICLE_URI } from "@/app/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { selectArticles } from "@/lib/features/articles/articlesSelector";
+import { setArticles } from "@/lib/features/articles/articlesSlice";
+import { setPage } from "@/lib/features/pagination/paginationSlice";
+import { selectPage } from "@/lib/features/pagination/paginationSelector";
 
-export default function GridList({
-  initialArticles = [],
-}: {
-  initialArticles: IArticle[];
-}) {
-  const [page, setPage] = useState(1);
-  const [articles, setArticles] = useState<IArticle[]>(initialArticles);
+export default function GridList() {
+  const dispatch = useDispatch();
+  const articles = useSelector(selectArticles());
+  const page = useSelector(selectPage());
   const [hasMoreData, setHasMoreData] = useState(true);
 
   const loadMoreArticles = async () => {
@@ -26,8 +28,8 @@ export default function GridList({
         setHasMoreData(false);
       }
 
-      setArticles((prevArticles) => [...prevArticles, ...response.data]);
-      setPage((prevPage) => prevPage + 1);
+      dispatch(setArticles(response.data));
+      dispatch(setPage(newPage));
     }
   };
 

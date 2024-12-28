@@ -5,5 +5,5 @@ import Articles from "../components/UI/Articles";
 export default async function Sport() {
   const { data: articles } = await fetchArticles(1, PAGE_LIMIT);
 
-  return <Articles articles={articles} />;
+  return <Articles data-testid="articles-component" articles={articles} />;
 }

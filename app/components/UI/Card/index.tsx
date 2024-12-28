@@ -14,12 +14,16 @@ export default function Card({
   cardType?: string;
 }) {
   return (
-    <article key={id} className={`card ${cardType}`}>
+    <article
+      data-testid={`card-${cardType}`}
+      key={id}
+      className={`card ${cardType}`}
+    >
       <div className="brightness-50 scale-100">
         <picture>
-          <div className={`card--image ${cardType}`}>
+          <div className={`card-image ${cardType}`}>
             <Image
-              className="object-cover object-top hover:scale-[1.02] transition ease-in-out delay-150 hover:-translate-y-1 duration-300"
+              className="object-cover object-top hover:scale-[1.07] transition ease-in-out delay-150 duration-300"
               src={image}
               alt="Description of the image"
               fill
@@ -29,11 +33,11 @@ export default function Card({
           </div>
         </picture>
       </div>
-      <div className={`card--headline ${cardType}`}>
-        <div className={`card--headline__border bg-sky-500 ${cardType}`}></div>
+      <div className={`card-headline ${cardType}`}>
+        <div className={`card-headline__border bg-sky-500 ${cardType}`}></div>
         <div>
-          <div className={`card--headline__label ${cardType}`}>{labelType}</div>
-          <h2 className={`card--headline__title line-clamp-2 ${cardType}`}>
+          <div className={`card-headline__label ${cardType}`}>{labelType}</div>
+          <h2 className={`card-headline__title line-clamp-2 ${cardType}`}>
             {titel}
           </h2>
         </div>

@@ -15,13 +15,5 @@ export default {
       },
     },
   },
-  plugins: [
-    plugin(({ matchUtilities }) => {
-      matchUtilities({
-        x: (value) => ({
-          [`@apply ${value.replaceAll(",", " ")}`]: {},
-        }),
-      });
-    }),
-  ],
+  plugins: [],
 } satisfies Config;

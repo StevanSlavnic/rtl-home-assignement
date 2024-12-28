@@ -46,7 +46,7 @@ body {
     }
   }
 
-  .card--image {
+  .card-image {
     @apply relative relative w-full pt-[57.25%];
 
     &.teaser-list {
@@ -54,59 +54,49 @@ body {
     }
 
     &.base {
-      @apply mb-2;
+      @apply mb-2 overflow-hidden;
     }
   }
 
-  .card--headline {
+  .card-headline {
+    &.teaser {
+      @apply absolute flex bottom-4 z-10 flex-row text-white;
+    }
     &.teaser-list,
     &.base {
       @apply relative text-black;
     }
-
-    &.teaser {
-      @apply absolute flex bottom-4 z-10 flex-row text-white;
-    }
   }
 
-  .card--headline__border {
+  .card-headline__border {
     &.teaser {
       @apply mr-4 w-[0.75rem] h-auto;
     }
-
     &.teaser-list,
     &.base {
       display: none;
     }
   }
 
-  .card--headline__label {
+  .card-headline__label {
     &.teaser {
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-      font-weight: 400;
+      @apply text-[1.25rem] leading-7 font-normal;
     }
 
     &.teaser-list,
     &.base {
-      font-size: 0.8rem;
-      line-height: 1rem;
-      font-weight: 400;
+      @apply text-[0.8rem] leading-4 font-normal;
     }
   }
 
-  .card--headline__title {
+  .card-headline__title {
     &.teaser {
-      font-size: 1.5rem;
-      line-height: 2rem;
-      font-weight: 700;
+      @apply text-[1.5rem] leading-8 font-bold;
     }
 
     &.teaser-list,
     &.base {
-      font-size: 1rem;
-      line-height: 1.25rem;
-      font-weight: 700;
+      @apply text-[1rem] leading-5 font-bold;
     }
   }
 }

@@ -13,7 +13,7 @@ interface HeaderProps {
 
 const Header = ({ routes }: HeaderProps) => {
   return (
-    <header className="sticky text-white ">
+    <header data-testid="header" className="sticky text-white ">
       <div className="flex justify-between items-center align-middle border-b border-gray-200 p-4">
         <div>
           <Logo />

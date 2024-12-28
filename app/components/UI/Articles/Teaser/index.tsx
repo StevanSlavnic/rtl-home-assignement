@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import Card from "@/app/components/UI/Card";
 import { IArticle } from "@/app/types";
 import { SPORT_ARTICLE_URI } from "@/app/constants";

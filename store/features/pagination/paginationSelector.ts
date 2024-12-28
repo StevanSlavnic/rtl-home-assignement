@@ -1,4 +1,4 @@
-import { RootState } from "@/lib/store";
+import { RootState } from "@/store/store";
 import { createSelector } from "@reduxjs/toolkit";
 
 export const selectStateDomain = (state: RootState) => state;

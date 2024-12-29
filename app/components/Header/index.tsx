@@ -19,29 +19,26 @@ const Header = ({ routes }: HeaderProps) => {
 
   return (
     <header data-testid="header" className="sticky text-white ">
-      <div className="flex justify-between items-center align-middle border-b border-gray-200 px-4">
-        <div className="flex flex-row gap-5 items-center align-middle">
+      <div className="flex p-4 justify-between items-center align-middle border-b border-gray-200">
+        <Link href="/">
           <Logo />
-          <nav>
-            <ul className="flex gap-5 p-4 text-gray-400 border-gray-200 border-b overflow-x-scroll">
-              <li>
-                <Link href="/nieuws">Nieuws</Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        </Link>
 
         <div>
-          <Link href="#" className="text-gray-400 py-1 px-2">
+          <Link href="#" className="text-gray-400 hover:text-black py-1 px-2">
             Sign In
           </Link>
         </div>
       </div>
       {!notFound && (
         <nav>
-          <ul className="flex gap-5 p-4 text-gray-400 border-gray-200 border-b overflow-x-scroll">
+          <ul className="flex gap-5 p-4 border-gray-200 border-b overflow-x-scroll">
             {routes.map((route) => (
-              <Link key={route.name} href={route.href}>
+              <Link
+                key={route.name}
+                href={route.href}
+                className="text-gray-400 hover:text-black"
+              >
                 {route.name}
               </Link>
             ))}

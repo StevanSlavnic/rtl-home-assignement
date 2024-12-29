@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "./StoreProvider";
-import Header from "./components/UI/Header";
-import Footer from "./components/UI/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,12 +21,12 @@ export const metadata: Metadata = {
 };
 
 const routes = [
-  { name: "Algemeen", href: "/" },
-  { name: "Economie", href: "/economie" },
-  { name: "Sport", href: "/sport" },
-  { name: "Politiek", href: "/politiek" },
-  { name: "Lifestyle", href: "/lifestyle" },
-  { name: "Uitzendingen", href: "/uitzendingen" },
+  { name: "Algemeen", href: "/nieuws" },
+  { name: "Economie", href: "/nieuws/economie" },
+  { name: "Sport", href: "/nieuws/sport" },
+  { name: "Politiek", href: "/nieuws/politiek" },
+  { name: "Lifestyle", href: "/nieuws/lifestyle" },
+  { name: "Uitzendingen", href: "/nieuws/uitzendingen" },
 ];
 
 export default function RootLayout({

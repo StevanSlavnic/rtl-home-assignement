@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-import Card from "@/app/components/UI/Card";
-import InfiniteScroll from "@/app/components/UI/InfiniteScroll";
-import Spinner from "../../components/UI/Spinner";
+import Card from "@/app/components/Card";
+import InfiniteScroll from "@/app/components/InfiniteScroll";
+import Spinner from "../../components/Spinner";
 import fetchArticles from "@/app/actions/actions";
 
 import { PAGE_LIMIT, SPORT_ARTICLE_URI } from "@/app/constants";

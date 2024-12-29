@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Card from "@/app/components/UI/Card";
+import Card from "@/app/components/Card";
 import { IArticle } from "@/app/types";
 import { SPORT_ARTICLE_URI } from "@/app/constants";
 

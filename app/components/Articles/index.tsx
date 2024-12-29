@@ -1,6 +1,6 @@
 import Teaser from "./Teaser";
 import TeaserList from "./TeaserList";
-import GridList from "../../../containers/GridList";
+import GridList from "../../containers/GridList";
 
 import { IArticle } from "@/app/types";
 

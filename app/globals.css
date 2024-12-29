@@ -22,7 +22,7 @@ body {
 
 @layer components {
   .container {
-    @apply px-4 py-8;
+    @apply px-4 pb-8;
     margin: 0 auto;
 
     @media screen and (min-width: 640px) {

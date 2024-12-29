@@ -4,7 +4,7 @@ import { PAGE_LIMIT } from "@/app/constants";
 
 export async function GET(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);
-  const currentPage = parseInt(searchParams.get("page") || "0"); // Default to page 1
+  const currentPage = parseInt(searchParams.get("page") || "1"); // Default to page 1
 
   const limit = parseInt(searchParams.get("limit") || `${PAGE_LIMIT}`); // Default to 12 items per page
 

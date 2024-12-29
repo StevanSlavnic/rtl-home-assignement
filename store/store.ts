@@ -1,12 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import articlesReducer from "./features/articles/articlesSlice";
 import paginationReducer from "./features/pagination/paginationSlice";
+import notFoundReducer from "./features/notFound/notFoundSlice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: combineReducers({
       articles: articlesReducer,
       pagination: paginationReducer,
+      notFound: notFoundReducer,
     }),
   });
 };

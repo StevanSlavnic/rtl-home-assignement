@@ -42,7 +42,7 @@ export default function RootLayout({
         <StoreProvider>
           <div className="container flex-grow">
             <Header routes={routes} />
-            <div>{children}</div>
+            <div className="max-w-screen-xl mx-auto pt-4">{children}</div>
           </div>
           <Footer />
         </StoreProvider>

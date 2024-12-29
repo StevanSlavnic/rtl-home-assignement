@@ -44,10 +44,10 @@ export default function GridList({
   }
 
   useEffect(() => {
-    if (!articles.length) {
+    if (articles.length === 0) {
       dispatch(setArticles(initialArticles));
     }
-  }, [initialArticles]);
+  }, [articles, dispatch, initialArticles]);
 
   const loadMoreArticles = async () => {
     if (hasMoreData) {

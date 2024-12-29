@@ -25,7 +25,7 @@ const Header = ({ routes }: HeaderProps) => {
         </div>
       </div>
       <nav>
-        <ul className="flex gap-5 p-4 text-gray-400 border-gray-200 border-b">
+        <ul className="flex gap-5 p-4 text-gray-400 border-gray-200 border-b overflow-x-scroll">
           {routes.map((route) => (
             <Link key={route.name} href={route.href}>
               {route.name}

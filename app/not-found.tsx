@@ -20,7 +20,7 @@ export default function NotFound() {
       <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
         <div className="mb-8">
           <h2>Not found</h2>
-          <p>Requested page doesn't exist.</p>
+          <p>Requested page doesn&apos;t exist.</p>
         </div>
 
         <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 mb-4">

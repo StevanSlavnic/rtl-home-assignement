@@ -60,7 +60,7 @@ body {
 
   .card-headline {
     &.teaser {
-      @apply absolute flex bottom-4 z-10 flex-row text-white dark:text-white;
+      @apply absolute flex bottom-4 z-10 flex-row text-white;
     }
     &.teaser-list,
     &.base {

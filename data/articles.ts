@@ -314,7 +314,7 @@ const baseObject = {
   type: "Artikel",
 };
 
-export const articles = Array.from({ length: 40 }, (_, index) => {
+export const articles = Array.from({ length: 217 }, (_, index) => {
   const id = 5476030 + index; // Increment ID
   const title = `Test article no paragraphs ${index + 1}`; // Increment title
   const image = `https://redactie.rtl.nl/sites/default/files/ANP271224119-1.jpg`; // Use RTL sport image as placeholder

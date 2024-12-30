@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import Card from "@/app/components/Card";
-import { SPORT_ARTICLE_URI } from "@/app/constants";
 import { IArticle } from "@/app/types";
+import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
 
 export default function TeaserList({ articles }: { articles: IArticle[] }) {
   return (
@@ -16,7 +16,7 @@ export default function TeaserList({ articles }: { articles: IArticle[] }) {
             <Link
               role={`link-${id}`}
               key={id}
-              href={`${SPORT_ARTICLE_URI}/${id}`}
+              href={generateArticleUrl(id, titel)}
             >
               <Card
                 id={id}

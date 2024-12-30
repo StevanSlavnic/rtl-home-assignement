@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Card from "@/app/components/Card";
 import { IArticle } from "@/app/types";
-import { SPORT_ARTICLE_URI } from "@/app/constants";
+import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
 
 export default function Teaser({ article }: { article: IArticle }) {
   const { id, titel, labelType, afbeelding } = article;
@@ -11,7 +11,7 @@ export default function Teaser({ article }: { article: IArticle }) {
       data-testid="teaser"
       className="w-full shrink-0 mb-5 sm:mb-5 lg:w-[643px]"
     >
-      <Link href={`${SPORT_ARTICLE_URI}/${id}`}>
+      <Link href={generateArticleUrl(id, titel)}>
         <Card
           id={id}
           titel={titel}

@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer
       data-testid="footer"
-      className="bg-gray-800 text-white text-center p-4"
+      className="h-[300px] bg-gray-800 text-white text-center p-4"
     ></footer>
   );
 }

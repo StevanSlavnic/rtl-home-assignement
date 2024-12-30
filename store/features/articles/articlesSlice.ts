@@ -1,14 +1,28 @@
 import { IArticle } from "@/app/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface ArticlesState {
+export interface IArticlesData {
   data: IArticle[];
+  currentPage: number;
+  total: number;
+  totalPages: number;
+}
+
+export interface ArticlesState {
+  data: IArticlesData;
+  isInitalized: boolean;
   loading: boolean;
-  error: string | null;
+  error: Error | null;
 }
 
 const initialState: ArticlesState = {
-  data: [],
+  data: {
+    data: [],
+    currentPage: 1,
+    total: 0,
+    totalPages: 0,
+  },
+  isInitalized: false,
   loading: false,
   error: null,
 };
@@ -17,13 +31,16 @@ const articlesSlice = createSlice({
   name: "articles",
   initialState,
   reducers: {
-    setArticles: (state, action: PayloadAction<IArticle[]>) => {
-      state.data = [...state.data, ...action.payload];
+    setArticles: (state, action: PayloadAction<IArticlesData>) => {
+      state.data = {
+        ...action.payload,
+        data: [...state.data.data, ...action.payload.data],
+      };
     },
     setLoadingArticles: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     },
-    setArticlesError: (state, action: PayloadAction<string>) => {
+    setArticlesError: (state, action: PayloadAction<Error>) => {
       state.error = action.payload;
     },
   },

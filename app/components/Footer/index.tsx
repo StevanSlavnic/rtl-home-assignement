@@ -5,8 +5,6 @@ export default function Footer() {
     <footer
       data-testid="footer"
       className="bg-gray-800 text-white text-center p-4"
-    >
-      Footer
-    </footer>
+    ></footer>
   );
 }

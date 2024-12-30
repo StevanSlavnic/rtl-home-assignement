@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders the Footer component 1`] = `
+<footer
+  class="bg-gray-800 text-white text-center p-4"
+  data-testid="footer"
+/>
+`;

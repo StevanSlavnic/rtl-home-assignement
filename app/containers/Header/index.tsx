@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Logo from "../Logo";
+import Logo from "../../components/Logo";
 import Link from "next/link";
 import { selectNotFound } from "@/store/features/notFound/notFoundSelector";
 import { useSelector } from "react-redux";

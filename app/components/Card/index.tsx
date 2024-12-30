@@ -15,7 +15,7 @@ export default function Card({
 }) {
   return (
     <article
-      data-testid={`card-${cardType}`}
+      data-testid={`card-${cardType}-${id}`}
       key={id}
       className={`card ${cardType}`}
     >
@@ -23,9 +23,10 @@ export default function Card({
         <picture>
           <div className={`card-image ${cardType}`}>
             <Image
+              data-testid={`card-image-${id}`}
               className="object-cover object-top hover:scale-[1.07] transition ease-in-out delay-150 duration-300"
               src={image}
-              alt="Description of the image"
+              alt={`${titel}` || "Image"}
               fill
               priority
               sizes="(min-width: 768px) 100vw, (max-width: 767px) 53vw, 100vw"

@@ -4,7 +4,9 @@ import { createSelector } from "@reduxjs/toolkit";
 export const selectArticlesDomain = (state: RootState) => state;
 
 export const selectArticles = () =>
-  createSelector(selectArticlesDomain, (state) => state.articles.data);
+  createSelector(selectArticlesDomain, (state) => {
+    return state.articles.data || [];
+  });
 
 export const selectLoadingArticles = () =>
   createSelector(selectArticlesDomain, (state) => state.articles.loading);

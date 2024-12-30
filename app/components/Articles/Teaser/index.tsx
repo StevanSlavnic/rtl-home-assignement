@@ -7,7 +7,10 @@ export default function Teaser({ article }: { article: IArticle }) {
   const { id, titel, labelType, afbeelding } = article;
 
   return (
-    <div className="w-full shrink-0 mb-5 sm:mb-5 lg:w-[643px]">
+    <div
+      data-testid="teaser"
+      className="w-full shrink-0 mb-5 sm:mb-5 lg:w-[643px]"
+    >
       <Link href={`${SPORT_ARTICLE_URI}/${id}`}>
         <Card
           id={id}

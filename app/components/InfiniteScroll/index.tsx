@@ -3,15 +3,13 @@
 import { InView } from "react-intersection-observer";
 
 export default function InfiniteScroll({
-  isEnabled,
-  hasMoreData,
+  isDisabled,
   onScroll,
 }: {
-  isEnabled: boolean;
-  hasMoreData?: boolean;
+  isDisabled: boolean;
   onScroll: () => void;
 }) {
-  if (!isEnabled || !hasMoreData) {
+  if (isDisabled) {
     return null;
   }
 

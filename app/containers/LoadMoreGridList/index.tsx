@@ -56,7 +56,7 @@ export default function LoadMoreGridList({
     dispatch(setPage(newPage));
   };
 
-  const debounceLoadMoreArticles = debounce(loadMoreArticles, 600);
+  const debounceLoadMoreArticles = debounce(loadMoreArticles, 300);
 
   return (
     <div>

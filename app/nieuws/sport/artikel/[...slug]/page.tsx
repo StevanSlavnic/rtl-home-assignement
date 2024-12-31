@@ -3,8 +3,7 @@ export default async function ArticlePage({
 }: {
   params: Promise<{ id: number; slug: string }>;
 }) {
-  const { id, slug } = await params;
+  const { slug } = await params;
 
-  console.log("id, slug :", id, slug);
-  return <div>ArticlePage</div>;
+  return <div>Page for article: {slug[1]}</div>;
 }

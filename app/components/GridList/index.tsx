@@ -6,7 +6,10 @@ import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
 export default function GridList({ articles }: { articles: IArticle[] }) {
   return (
     <>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-5">
+      <div
+        data-testid="grid-ssr"
+        className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-5"
+      >
         {articles.map(({ id, titel, afbeelding, labelType }: IArticle) => {
           return (
             <Link key={id} href={generateArticleUrl(id, titel)}>

@@ -10,7 +10,6 @@ export interface IArticlesData {
 
 export interface ArticlesState {
   data: IArticlesData;
-  isInitalized: boolean;
   loading: boolean;
   error: Error | null;
 }
@@ -22,7 +21,6 @@ const initialState: ArticlesState = {
     total: 0,
     totalPages: 0,
   },
-  isInitalized: false,
   loading: false,
   error: null,
 };

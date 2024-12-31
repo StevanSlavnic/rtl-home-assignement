@@ -1,3 +1,4 @@
+export const INITIAL_PAGE = 1;
 export const PAGE_LIMIT = 12;
 export const NEWS_PAGE_URI = "/nieuws";
 export const SPORT_PAGE_URI = "/sport";

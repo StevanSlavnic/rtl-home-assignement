@@ -4,9 +4,10 @@ import fetchArticles from "@/app/actions/actions";
 import Card from "@/app/components/Card";
 import InfiniteScroll from "@/app/components/InfiniteScroll";
 import Spinner from "@/app/components/Spinner";
-import { PAGE_LIMIT, SPORT_ARTICLE_URI } from "@/app/constants";
+import { INITIAL_PAGE, PAGE_LIMIT } from "@/app/constants";
 import { IArticle } from "@/app/types";
 import debounce from "@/app/utils/debounce";
+import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
 import {
   selectArticles,
   selectErrorArticles,
@@ -38,14 +39,11 @@ export default function LoadMoreGridList({
 
   const loadMoreArticles = async () => {
     dispatch(setLoadingArticles(true));
-    const newPage = page + 1;
-    const response = await fetchArticles(newPage, PAGE_LIMIT)
-      .catch((error) => {
-        dispatch(setArticlesError(error));
-      })
-      .finally(() => {
-        dispatch(setLoadingArticles(false));
-      });
+    const newPage = page + INITIAL_PAGE;
+    const response = await fetchArticles(newPage, PAGE_LIMIT).catch((error) => {
+      dispatch(setArticlesError(error));
+      dispatch(setLoadingArticles(false));
+    });
 
     if (!response.data.length) {
       dispatch(setLoadingArticles(false));
@@ -60,10 +58,13 @@ export default function LoadMoreGridList({
 
   return (
     <div>
-      <div className="grid md:grid-cols-3 lg:grid-cols-4 grid-cols-2 gap-5">
+      <div
+        data-testid="grid-client"
+        className="grid md:grid-cols-3 lg:grid-cols-4  grid-cols-2 gap-5 mt-4"
+      >
         {articles.data.map(({ id, titel, afbeelding, labelType }: IArticle) => {
           return (
-            <Link key={id} href={`${SPORT_ARTICLE_URI}/${id}`}>
+            <Link key={id} href={generateArticleUrl(id, titel)}>
               <Card
                 id={id}
                 titel={titel}
@@ -77,22 +78,26 @@ export default function LoadMoreGridList({
       </div>
 
       {error && (
-        <div className="text-red-500">
-          <div>Error fetching articles</div>
-          <button
-            onClick={() => {
-              router.refresh();
-            }}
-          >
-            Try again
-          </button>
-          <button
-            onClick={() => {
-              router.push("/");
-            }}
-          >
-            Go to home
-          </button>
+        <div className="flex flex-col items-center justify-center mt-4">
+          <div className="p-4">Error fetching articles</div>
+          <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 mb-4 gap-4">
+            <button
+              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              onClick={() => {
+                router.refresh();
+              }}
+            >
+              Try again
+            </button>
+            <button
+              className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
+              onClick={() => {
+                router.push("/");
+              }}
+            >
+              Go to home
+            </button>
+          </div>
         </div>
       )}
 

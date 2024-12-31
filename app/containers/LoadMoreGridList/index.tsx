@@ -1,13 +1,11 @@
 "use client";
 
-import fetchArticles from "@/app/actions/actions";
-import Card from "@/app/components/Card";
-import InfiniteScroll from "@/app/components/InfiniteScroll";
-import Spinner from "@/app/components/Spinner";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+
 import { INITIAL_PAGE, PAGE_LIMIT } from "@/app/constants";
-import { IArticle } from "@/app/types";
-import debounce from "@/app/utils/debounce";
-import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
+
 import {
   selectArticles,
   selectErrorArticles,
@@ -20,10 +18,16 @@ import {
 } from "@/store/features/articles/articlesSlice";
 import { selectPage } from "@/store/features/pagination/paginationSelector";
 import { setPage } from "@/store/features/pagination/paginationSlice";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import fetchArticles from "@/app/actions/actions";
+
+import Card from "@/app/components/Card";
+import InfiniteScroll from "@/app/components/InfiniteScroll";
+import Spinner from "@/app/components/Spinner";
+
+import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
+import debounce from "@/app/utils/debounce";
+
+import { IArticle } from "@/app/types";
 
 export default function LoadMoreGridList({
   totalPages,

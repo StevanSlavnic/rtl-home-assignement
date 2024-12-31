@@ -3,7 +3,7 @@ import { INITIAL_PAGE, PAGE_LIMIT } from "../../constants";
 
 import Teaser from "@/app/components/Articles/Teaser";
 import TeaserList from "@/app/components/Articles/TeaserList";
-import GridList from "@/app/components/GridList";
+import GridList from "@/app/components/Articles/GridList";
 import LoadMoreGridList from "@/app/containers/LoadMoreGridList";
 
 export default async function Sport() {

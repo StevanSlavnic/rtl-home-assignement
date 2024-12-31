@@ -21,12 +21,10 @@ export async function GET(request: Request): Promise<Response> {
       };
     }); // Omitted other properties for brevity
 
-  const totalPages = Math.ceil(articles.length / limit);
-
   return NextResponse.json({
     data: paginatedArticles,
     total: articles.length,
     currentPage,
-    totalPages: totalPages,
+    totalPages: Math.ceil(articles.length / limit),
   });
 }

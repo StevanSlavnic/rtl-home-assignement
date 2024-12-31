@@ -11,14 +11,14 @@ jest.mock("react-intersection-observer", () => ({
 
 describe("InfiniteScroll", () => {
   it("renders the InfiniteScroll component when enabled and has more data", () => {
-    render(<InfiniteScroll isDisabled={true} onScroll={jest.fn()} />);
+    render(<InfiniteScroll isDisabled={false} onScroll={jest.fn()} />);
 
     const infiniteScrollElement = screen.getByTestId("infinite-scroll");
     expect(infiniteScrollElement).toBeInTheDocument();
   });
 
   it("does not render the InfiniteScroll component when not enabled", () => {
-    render(<InfiniteScroll isDisabled={false} onScroll={jest.fn()} />);
+    render(<InfiniteScroll isDisabled={true} onScroll={jest.fn()} />);
 
     const infiniteScrollElement = screen.queryByTestId("infinite-scroll");
     expect(infiniteScrollElement).not.toBeInTheDocument();

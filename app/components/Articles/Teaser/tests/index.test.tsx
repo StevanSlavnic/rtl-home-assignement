@@ -1,8 +1,11 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+
 import Teaser from "../index";
+
+import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
+
 import { IArticle } from "@/app/types";
-import { SPORT_ARTICLE_URI } from "@/app/constants";
 
 jest.mock("next/navigation", () => {
   const router = {
@@ -35,7 +38,7 @@ describe("Teaser", () => {
     const linkElement = screen.getByRole("link");
     expect(linkElement).toHaveAttribute(
       "href",
-      `${SPORT_ARTICLE_URI}/${mockArticle.id}`
+      generateArticleUrl(mockArticle.id, mockArticle.titel)
     );
   });
 

@@ -1,17 +1,18 @@
 import Image from "next/image";
+import { ArticleType } from "@/app/types";
 
 export default function Card({
   id,
   titel,
   labelType,
-  image,
-  cardType = "",
+  afbeelding,
+  cardType = "base",
 }: {
   id: number | string;
   titel: string;
   labelType: string;
-  image: string;
-  cardType?: string;
+  afbeelding: string;
+  cardType: ArticleType;
 }) {
   return (
     <article
@@ -25,7 +26,7 @@ export default function Card({
             <Image
               data-testid={`card-image-${id}`}
               className="object-cover object-top hover:scale-[1.07] transition ease-in-out delay-150 duration-300"
-              src={image}
+              src={afbeelding}
               alt={`${titel}` || "Image"}
               fill
               priority

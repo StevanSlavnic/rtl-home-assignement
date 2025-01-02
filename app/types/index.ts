@@ -4,3 +4,12 @@ export interface IArticle {
   titel: string;
   afbeelding: string;
 }
+
+export type ArticleType = "base" | "teaser" | "teaser-list";
+
+export interface IArticleListProps {
+  testid: string;
+  styles: string;
+  type: ArticleType;
+  articles: IArticle[];
+}

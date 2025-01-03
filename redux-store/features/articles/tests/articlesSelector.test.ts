@@ -3,7 +3,7 @@ import {
   selectLoadingArticles,
   selectErrorArticles,
 } from "../articlesSelector";
-import { RootState } from "@/store/store";
+import { RootState } from "@/redux-store/store";
 
 describe("articles selectors", () => {
   const mockState: RootState = {

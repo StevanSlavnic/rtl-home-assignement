@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["redactie.rtl.nl"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "redactie.rtl.nl",
+      },
+    ],
   },
   async redirects() {
     return [

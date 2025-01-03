@@ -1,10 +1,10 @@
-import fetchArticles from "../../actions/actions";
-import { INITIAL_PAGE, PAGE_LIMIT } from "../../constants";
+import fetchArticles from "../../api/actions/actions";
+import { INITIAL_PAGE, PAGE_LIMIT } from "../../../constants";
 
-import LoadMoreGridList from "@/app/containers/LoadMoreGridList";
-import ArticleList from "@/app/components/ArticleList";
+import LoadMoreGridList from "@/containers/LoadMoreGridList";
+import ArticleList from "@/components/ArticleList";
 
-export default async function Sport() {
+export default async function SportPage() {
   const response = await fetchArticles(INITIAL_PAGE, PAGE_LIMIT);
 
   return (
@@ -23,7 +23,7 @@ export default async function Sport() {
         <ArticleList
           testid="teaser-list"
           type="teaser-list"
-          styles="flex gap-y-5 flex-col sm:ml-0 sm:mb-5 sm:gap-5 sm:gap-y-5 md:grid md:grid md:gap-y-5 md:grid-cols-[repeat(2,_1fr)] md:mb-5 lg:flex lg:flex-col lg:flex-wrap lg:ml-5 lg:grow lg:gap-y-5"
+          styles="flex gap-y-5 mb-5 flex-col sm:ml-0 sm:mb-5 sm:gap-5 sm:gap-y-5 md:grid md:grid md:gap-y-5 md:grid-cols-[repeat(2,_1fr)] md:mb-5 lg:flex lg:flex-col lg:flex-wrap lg:ml-5 lg:grow lg:gap-y-5"
           articles={response.data.slice(1, 5)}
         />
       </section>

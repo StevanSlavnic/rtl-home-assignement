@@ -2,28 +2,28 @@
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { INITIAL_PAGE, PAGE_LIMIT } from "@/app/constants";
+import { INITIAL_PAGE, PAGE_LIMIT } from "@/constants";
 
 import {
   selectArticles,
   selectErrorArticles,
   selectLoadingArticles,
-} from "@/store/features/articles/articlesSelector";
+} from "@/redux-store/features/articles/articlesSelector";
 import {
   setArticles,
   setArticlesError,
   setLoadingArticles,
-} from "@/store/features/articles/articlesSlice";
-import { selectPage } from "@/store/features/pagination/paginationSelector";
-import { setPage } from "@/store/features/pagination/paginationSlice";
-import fetchArticles from "@/app/actions/actions";
+} from "@/redux-store/features/articles/articlesSlice";
+import { selectPage } from "@/redux-store/features/pagination/paginationSelector";
+import { setPage } from "@/redux-store/features/pagination/paginationSlice";
+import fetchArticles from "@/app/api/actions/actions";
 
-import InfiniteScroll from "@/app/components/InfiniteScroll";
-import Spinner from "@/app/components/Spinner";
+import InfiniteScroll from "@/components/InfiniteScroll";
+import Spinner from "@/components/Spinner";
 
-import debounce from "@/app/utils/debounce";
+import debounce from "@/utils/debounce";
 
-import ArticleList from "@/app/components/ArticleList";
+import ArticleList from "@/components/ArticleList";
 import LoadMoreError from "../LoadMoreError";
 
 export default function LoadMoreGridList({

@@ -1,5 +1,5 @@
 import { selectNotFound } from "../notFoundSelector";
-import { RootState } from "@/store/store";
+import { RootState } from "@/redux-store/store";
 
 describe("notFound selectors", () => {
   const mockState: RootState = {

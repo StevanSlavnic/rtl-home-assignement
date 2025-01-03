@@ -1,5 +1,5 @@
 import { selectPage } from "../paginationSelector";
-import { RootState } from "@/store/store";
+import { RootState } from "@/redux-store/store";
 
 describe("pagination selectors", () => {
   const mockState: RootState = {

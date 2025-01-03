@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Card from "../index";
-import { ArticleType } from "@/app/types";
+import { ArticleType } from "@/types";
 
 const mockProps = {
   id: "1",

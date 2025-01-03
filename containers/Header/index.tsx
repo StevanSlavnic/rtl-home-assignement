@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import Logo from "../../components/Logo";
-import { selectNotFound } from "@/store/features/notFound/notFoundSelector";
+import { selectNotFound } from "@/redux-store/features/notFound/notFoundSelector";
 
 interface Route {
   name: string;

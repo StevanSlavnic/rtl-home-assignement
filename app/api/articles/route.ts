@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { articles } from "../../../data/articles"; // Simulated data
-import { INITIAL_PAGE, PAGE_LIMIT } from "@/app/constants";
+import { INITIAL_PAGE, PAGE_LIMIT } from "@/constants";
 
 export async function GET(request: Request): Promise<Response> {
   const { searchParams } = new URL(request.url);

@@ -1,5 +1,5 @@
 "use client";
-import { setNotFound } from "@/store/features/notFound/notFoundSlice";
+import { setNotFound } from "@/redux-store/features/notFound/notFoundSlice";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";

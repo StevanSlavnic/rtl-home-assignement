@@ -2,9 +2,9 @@
  * @jest-environment node
  */
 // use the node environment to test the API routes - tell Jest to use the node environment in the route test files
-import { GET } from "../articles/route";
+import { GET } from "./route";
 import { articles } from "../../../data/articles";
-import { PAGE_LIMIT } from "@/app/constants";
+import { PAGE_LIMIT } from "@/constants";
 
 describe("GET /api/articles", () => {
   it("returns paginated articles", async () => {

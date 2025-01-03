@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArticleType } from "@/app/types";
+import { ArticleType } from "@/types";
 
 export default function Card({
   id,

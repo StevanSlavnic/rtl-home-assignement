@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Fragment } from "react";
 
-import { IArticle, IArticleListProps } from "@/app/types";
-import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
+import { IArticle, IArticleListProps } from "@/types";
+import { generateArticleUrl } from "@/utils/generateArticleUrl";
 
 import Card from "../Card";
 

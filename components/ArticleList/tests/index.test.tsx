@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ArticleList from "../index";
-import { IArticle } from "@/app/types";
-import { generateArticleUrl } from "@/app/utils/generateArticleUrl";
+import { IArticle } from "@/types";
+import { generateArticleUrl } from "@/utils/generateArticleUrl";
 
 jest.mock("../../../utils/generateArticleUrl");
 

@@ -1,4 +1,4 @@
-import { IArticle } from "@/app/types";
+import { IArticle } from "@/types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface IArticlesData {

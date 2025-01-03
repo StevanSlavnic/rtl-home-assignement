@@ -1,36 +1,185 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build project:
+
+```bash
+npm run build
+```
+
+Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Project Structure Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This document outlines the structure of the project, explaining the purpose of each folder and file.
 
-## Learn More
+## Root Directory
 
-To learn more about Next.js, take a look at the following resources:
+- **`constants.ts`**: Contains constant values used throughout the application, such as `PAGE_LIMIT` and `INITIAL_PAGE`.
+- **`types.ts`**: Defines TypeScript types and interfaces used in the application, such as `IArticle` and `IArticleListProps`.
+- **`jest.config.js`**: Configuration file for Jest, a JavaScript testing framework.
+- **`tsconfig.json`**: TypeScript configuration file.
+- **`package.json`**: Contains metadata about the project and its dependencies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## `components/`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Contains reusable UI components.
 
-## Deploy on Vercel
+### `ArticleList/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Component for displaying a list of articles.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `ArticleList` component.
+  - **`ArticleList.test.tsx`**: Test file for the `ArticleList` component.
+
+### `Card/`
+
+Component for displaying individual article cards.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `Card` component.
+  - **`Card.test.tsx`**: Test file for the `Card` component.
+
+### `Header/`
+
+Component for the header section of the application.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `Header` component.
+  - **`Header.test.tsx`**: Test file for the `Header` component.
+
+### `Footer/`
+
+Component for the footer section of the application.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `Footer` component.
+  - **`Footer.test.tsx`**: Test file for the `Footer` component.
+
+### `Logo/`
+
+Component for displaying the logo.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `Logo` component.
+  - **`Logo.test.tsx`**: Test file for the `Logo` component.
+
+### `InfiniteScroll/`
+
+Component for implementing infinite scrolling.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `InfiniteScroll` component.
+  - **`InfiniteScroll.test.tsx`**: Test file for the `InfiniteScroll` component.
+
+## `containers/`
+
+Contains higher-level components that manage state and logic.
+
+### `LoadMoreError/`
+
+Component for handling load-more errors.
+
+- **`index.tsx`**: Main component file.
+- **`tests/`**: Contains tests for the `LoadMoreError` component.
+  - **`LoadMoreError.test.tsx`**: Test file for the `LoadMoreError` component.
+
+## `store/`
+
+Contains Redux store configuration and slices.
+
+### `features/`
+
+#### `articles/`
+
+- **`articlesSlice.ts`**: Redux slice for managing articles state.
+- **`articlesSelector.ts`**: Selectors for accessing articles state.
+- **`tests/`**: Contains tests for the articles slice and selectors.
+  - **`articlesSlice.test.ts`**: Test file for the articles slice.
+  - **`articlesSelector.test.ts`**: Test file for the articles selectors.
+
+#### `notFound/`
+
+- **`notFoundSlice.ts`**: Redux slice for managing `notFound` state.
+- **`notFoundSelector.ts`**: Selectors for accessing `notFound` state.
+- **`tests/`**: Contains tests for the `notFound` slice and selectors.
+  - **`notFoundSlice.test.ts`**: Test file for the `notFound` slice.
+  - **`notFoundSelector.test.ts`**: Test file for the `notFound` selectors.
+
+#### `pagination/`
+
+- **`paginationSlice.ts`**: Redux slice for managing pagination state.
+- **`paginationSelector.ts`**: Selectors for accessing pagination state.
+- **`tests/`**: Contains tests for the pagination slice and selectors.
+  - **`paginationSlice.test.ts`**: Test file for the pagination slice.
+  - **`paginationSelector.test.ts`**: Test file for the pagination selectors.
+
+### `store.ts`
+
+Main Redux store configuration file.
+
+## `pages/`
+
+Contains Next.js pages.
+
+### `api/`
+
+API routes.
+
+- **`articles/`**: API route for fetching articles.
+  - **`route.ts`**: Main API route file.
+  - **`tests/`**: Contains tests for the API route.
+    - **`route.test.ts`**: Test file for the API route.
+
+### `nieuws/`
+
+News pages.
+
+- **`sport/`**: Sport news page.
+  - **`index.tsx`**: Main page file for sport news.
+
+## `utils/`
+
+Contains utility functions.
+
+- **`generateArticleUrl.ts`**: Utility function for generating article URLs.
+- **`tests/`**: Contains tests for utility functions.
+  - **`generateArticleUrl.test.ts`**: Test file for the `generateArticleUrl` utility function.
+
+## `cypress/`
+
+Contains Cypress end-to-end tests.
+
+### `e2e/`
+
+End-to-end test files.
+
+- **`rtl-sport-page/`**: Tests for the sport news page.
+  - **`rtl-sport-page.cy.js`**: Cypress test file for the sport news page.
+
+### `fixtures/`
+
+Contains fixture data for tests.
+
+- **`articles.json`**: Fixture file containing sample articles data.
+
+### `support/`
+
+Contains support files for Cypress.
+
+- **`commands.js`**: Custom Cypress commands.
+- **`index.js`**: Cypress support file.
+
+---

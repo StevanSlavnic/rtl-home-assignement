@@ -38,4 +38,13 @@ describe("GET /api/articles", () => {
     expect(response.status).toBe(200);
     expect(json.data).toHaveLength(PAGE_LIMIT);
   });
+
+  it("returns default number of articles when page is not specified", async () => {
+    const request = new Request("https://example.com/api/articles?limit=12");
+    const response = await GET(request);
+    const json = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(json.data).toHaveLength(PAGE_LIMIT);
+  });
 });

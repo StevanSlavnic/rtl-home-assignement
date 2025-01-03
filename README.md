@@ -156,7 +156,13 @@ Contains utility functions.
 
 - **`generateArticleUrl.ts`**: Utility function for generating article URLs.
 - **`tests/`**: Contains tests for utility functions.
-  - **`generateArticleUrl.test.ts`**: Test file for the `generateArticleUrl` utility function.
+- **`generateArticleUrl.test.ts`**: Test file for the `generateArticleUrl` utility function.
+
+- **`debounce.ts`**: Utility function for debouncing api calls.
+- **`tests/`**: Contains tests for utility functions.
+- **`debounce.test.ts`**: Test file for the `debounce` utility function.
+
+- **`test-utils.ts`**: Utility wrapper for tests.
 
 ## `cypress/`
 

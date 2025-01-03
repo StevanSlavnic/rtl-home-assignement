@@ -8,6 +8,11 @@ export const selectArticles = () =>
     return state.articles.data || [];
   });
 
+export const selectCurrentPage = () =>
+  createSelector(selectArticlesDomain, (state) => {
+    return state.articles.data.currentPage || 1;
+  });
+
 export const selectLoadingArticles = () =>
   createSelector(selectArticlesDomain, (state) => state.articles.loading);
 

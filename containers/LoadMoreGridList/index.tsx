@@ -6,6 +6,7 @@ import { INITIAL_PAGE, PAGE_LIMIT } from "@/constants";
 
 import {
   selectArticles,
+  selectCurrentPage,
   selectErrorArticles,
   selectLoadingArticles,
 } from "@/redux-store/features/articles/articlesSelector";
@@ -14,8 +15,6 @@ import {
   setArticlesError,
   setLoadingArticles,
 } from "@/redux-store/features/articles/articlesSlice";
-import { selectPage } from "@/redux-store/features/pagination/paginationSelector";
-import { setPage } from "@/redux-store/features/pagination/paginationSlice";
 import fetchArticles from "@/app/api/actions/actions";
 
 import InfiniteScroll from "@/components/InfiniteScroll";
@@ -35,7 +34,7 @@ export default function LoadMoreGridList({
   const articles = useSelector(selectArticles());
   const loading = useSelector(selectLoadingArticles());
   const error = useSelector(selectErrorArticles());
-  const page = useSelector(selectPage());
+  const page = useSelector(selectCurrentPage());
 
   const loadMoreArticles = async () => {
     dispatch(setLoadingArticles(true));
@@ -51,7 +50,6 @@ export default function LoadMoreGridList({
 
     dispatch(setLoadingArticles(false));
     dispatch(setArticles(response));
-    dispatch(setPage(newPage));
   };
 
   const debounceLoadMoreArticles = debounce(loadMoreArticles, 300);

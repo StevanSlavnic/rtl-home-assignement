@@ -1,12 +1,10 @@
 import { combineReducers, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import { Action } from "redux";
 import articlesReducer from "./features/articles/articlesSlice";
-import paginationReducer from "./features/pagination/paginationSlice";
 import notFoundReducer from "./features/notFound/notFoundSlice";
 
 const rootReducer = combineReducers({
   articles: articlesReducer,
-  pagination: paginationReducer,
   notFound: notFoundReducer,
 });
 
